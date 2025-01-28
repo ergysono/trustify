@@ -7,7 +7,7 @@ import { createCanvas } from 'canvas';
 //         color += letters[Math.floor(Math.random() * 10)];
 //     }
 //     return color;
-// }
+// } 
 
 export function generateProfilePic(address: string): string {
     const firstChar = address[2].toUpperCase();
