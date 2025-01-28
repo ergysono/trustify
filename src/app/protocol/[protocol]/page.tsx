@@ -63,9 +63,9 @@ function Protocol({ params }: Props) {
                         <Image src={`/protocols/${protocolDetails?.image_url}`} alt="uniswap logo" width={100} height={100} className="bg-white rounded-lg" />
                         <div className="flex flex-col gap-2 text-center md:text-left">
                             <div className="text-2xl">{protocolDetails?.protocol_name}</div>
-                            <div>
+                            {/* <div>
                                 Algoritmic, autonomous interest rate protocol
-                            </div>
+                            </div> */}
                             <div className='flex flex-row gap-1 justify-center md:justify-start'>
                                 {Array.from({ length: protocolDetails?.avg_rating ?? 0 }, (_, i) => (
                                     <Image key={i} src={`/stars/star_${Math.round(protocolDetails?.avg_rating ?? 0)}.svg`} width={20} height={20} alt="Rating" />

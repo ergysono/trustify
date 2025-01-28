@@ -154,7 +154,7 @@ function Categories() {
                             />
                             <span>{minReviews} Reviews</span>
                         </div>
-                        <div>
+                        {/* <div>
                             <label className="font-semibold text-lg">Filter by Twitter Followers</label>
                             <input
                                 type="range"
@@ -164,7 +164,7 @@ function Categories() {
                                 className="w-full"
                             />
                             <span className="text-gray-500">0 - 1,000,000 Followers</span>
-                        </div>
+                        </div> */}
                         <div className="flex flex-col gap-4">
                             <label className="font-semibold text-lg">Sort By</label>
                             <select
@@ -192,54 +192,121 @@ function Categories() {
                 <div className="flex flex-col min-w-[50%] gap-12 h-screen scroll-auto scrollbar p-2 mt-8 md:mt-0">
                     {sortedProtocols.map((protocol, index) => {
                         return (
-                            <div key={index} className="flex flex-col gap-4 border border-[#B2F1A8] shadow-[0_0_4px_#B2F1A8] rounded-lg p-4 md:p-8">
-                                <div className="flex flex-col md:flex-row gap-4 md:gap-6 hover:cursor-pointer" onClick={() => router.push(`/protocol/${protocol.protocol_name}`)}>
-                                    <Image src={`/protocols/${protocol.image_url}`} alt="protocol logo" width={100} height={100} className="bg-white rounded-lg" />
-                                    <div className="flex flex-col gap-2">
-                                        <div className="text-xl md:text-2xl">{protocol.protocol_name}</div>
-                                        <div className='flex flex-row gap-1 items-center'>
-                                            {Array.from({ length: Math.round(protocol.avg_rating ?? 0) }, (_, i) => (
-                                                <Image key={i} src={`/stars/star_${Math.round(protocol.avg_rating)}.svg`} width={20} height={20} alt="Rating" />
-                                            ))}
-                                            <div className="ml-2 text-sm md:text-base">
-                                                {protocol.avg_rating?.toFixed(2)} ({protocol.review_count} reviews)
-                                            </div>
-                                        </div>
-                                        <div className="text-sm md:text-base">
-                                            Algoritmic, autonomous interest rate protocol
-                                        </div>
-                                    </div>
+                          <div
+                            key={index}
+                            className="flex flex-col gap-4 border border-[#B2F1A8] shadow-[0_0_4px_#B2F1A8] rounded-lg p-4 md:p-8"
+                          >
+                            <div
+                              className="flex flex-col md:flex-row gap-4 md:gap-6 hover:cursor-pointer"
+                              onClick={() =>
+                                router.push(
+                                  `/protocol/${protocol.protocol_name}`
+                                )
+                              }
+                            >
+                              <Image
+                                src={`/protocols/${protocol.image_url}`}
+                                alt="protocol logo"
+                                width={100}
+                                height={100}
+                                className="bg-white rounded-lg"
+                              />
+                              <div className="flex flex-col gap-2">
+                                <div className="text-xl md:text-2xl">
+                                  {protocol.protocol_name}
                                 </div>
-                                <div className="border-b-[1px] border-b-[#B2F1A8] "></div>
-                                <div className="flex md:flex-row flex-col justify-between">
-                                    <div className="flex flex-row gap-6 items-center">
-                                        <a href={`https://${protocol.x}`} target="_blank" rel="noopener noreferrer">
-                                            <FaXTwitter size={20} />
-                                        </a>
-                                        <a href={`https://${protocol.telegram}`} target="_blank" rel="noopener noreferrer">
-                                            <FaTelegram size={20} />
-                                        </a>
-                                        <a href={`https://${protocol.discord}`} target="_blank" rel="noopener noreferrer">
-                                            <FaDiscord size={20} />
-                                        </a>
-                                    </div>
-                                    <div className="flex flex-row gap-4 overflow-x-auto scrollbar md:mt-0 mt-4">
-                                        {protocol.ProtocolCategories?.map((protocolCategory, index) => {
-                                            return (
-                                                <div key={index} className="flex flex-row gap-2 border-[2px] border-[#B2F1A8] rounded-tl-lg rounded-bl-3xl py-1 px-4 rounded-tr-2xl rounded-br-2xl whitespace-nowrap">
-                                                    <div className="flex-shrink-0">
-                                                        <Image src="/star.svg" width={20} height={20} alt="star Logo" />
-                                                    </div>
-                                                    <div className="flex-shrink-0 text-sm md:text-base">
-                                                        {protocolCategory.Categories.category_name}
-                                                    </div>
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
+                                <div className="flex flex-row gap-1 items-center">
+                                  {Array.from(
+                                    {
+                                      length: Math.round(
+                                        protocol.avg_rating ?? 0
+                                      ),
+                                    },
+                                    (_, i) => (
+                                      <Image
+                                        key={i}
+                                        src={`/stars/star_${Math.round(
+                                          protocol.avg_rating
+                                        )}.svg`}
+                                        width={20}
+                                        height={20}
+                                        alt="Rating"
+                                      />
+                                    )
+                                  )}
+                                  <div className="ml-2 text-sm md:text-base">
+                                    {protocol.avg_rating?.toFixed(2)} (
+                                    {protocol.review_count} reviews)
+                                  </div>
                                 </div>
+                                <div className="text-sm md:text-base">
+                                  Algoritmic, autonomous interest rate protocol
+                                </div>
+                              </div>
                             </div>
-                        )
+                            <div className="border-b-[1px] border-b-[#B2F1A8] "></div>
+                            <div className="flex md:flex-row flex-col justify-between">
+                              <div className="flex flex-row gap-6 items-center">
+                                {protocol.x && (
+                                  <a
+                                    href={`https://${protocol.x}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <FaXTwitter size={20} />
+                                  </a>
+                                )}
+
+                                {protocol.telegram && (
+                                  <a
+                                    href={`https://${protocol.telegram}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <FaTelegram size={20} />
+                                  </a>
+                                )}
+
+                                {protocol.discord && (
+                                  <a
+                                    href={`https://${protocol.discord}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <FaDiscord size={20} />
+                                  </a>
+                                )}
+                              </div>
+                              <div className="flex flex-row gap-4 overflow-x-auto scrollbar md:mt-0 mt-4">
+                                {protocol.ProtocolCategories?.map(
+                                  (protocolCategory, index) => {
+                                    return (
+                                      <div
+                                        key={index}
+                                        className="flex flex-row gap-2 border-[2px] border-[#B2F1A8] rounded-tl-lg rounded-bl-3xl py-1 px-4 rounded-tr-2xl rounded-br-2xl whitespace-nowrap"
+                                      >
+                                        <div className="flex-shrink-0">
+                                          <Image
+                                            src="/star.svg"
+                                            width={20}
+                                            height={20}
+                                            alt="star Logo"
+                                          />
+                                        </div>
+                                        <div className="flex-shrink-0 text-sm md:text-base">
+                                          {
+                                            protocolCategory.Categories
+                                              .category_name
+                                          }
+                                        </div>
+                                      </div>
+                                    );
+                                  }
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        );
                     })}
                 </div>
             </div>

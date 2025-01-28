@@ -141,7 +141,7 @@ export default function Hero({ setShowWallet, showWallet }: Props) {
                                                 ))}
                                             </div>
                                             <div>
-                                                {protocol.avg_rating}
+                                                {protocol.avg_rating.toPrecision(2)}
                                             </div>
                                             <div className="ml-2">
                                                 ({protocol.review_count} reviews)

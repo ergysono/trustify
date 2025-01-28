@@ -59,7 +59,7 @@ function Profile({ params }: Props) {
                             AVERAGE SCORE
                         </div>
                         <div className="text-2xl">
-                            {avgScore.toFixed(2)}
+                            {avgScore? avgScore.toFixed(2) : "0"}
                         </div>
                     </div>
                 </div>
