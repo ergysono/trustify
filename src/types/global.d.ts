@@ -9,6 +9,7 @@ interface Window {
 }
 
 type CategorizedReviews = {
+    0: Review[];
     1: Review[];
     2: Review[];
     3: Review[];

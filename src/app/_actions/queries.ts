@@ -278,6 +278,7 @@ export const fetchReviewsForAProtocol = async (
 
   // Categorize reviews by rating
   const categorizedReviews: CategorizedReviews = {
+    0: [],
     1: [],
     2: [],
     3: [],
