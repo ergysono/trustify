@@ -16,7 +16,7 @@ type Props = {
 };
 
 export default function Reviews({ protocol_id, avg_rating, description, x, telegram, discord }: Props) {
-    const [reviews, setReviews] = useState<CategorizedReviews>({ 1: [], 2: [], 3: [], 4: [], 5: [] });
+    const [reviews, setReviews] = useState<CategorizedReviews>({ 0: [], 1: [], 2: [], 3: [], 4: [], 5: [] });
     const [loading, setLoading] = useState(true);
     const [selectedRatings, setSelectedRatings] = useState<number[]>([]);
     const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState<boolean>(false);
