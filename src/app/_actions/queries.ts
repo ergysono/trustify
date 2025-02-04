@@ -155,7 +155,7 @@ export const writeReview = async (
         rating,
         title,
         description,
-        user_wallet_address: wallet_address,
+        user_wallet_address: wallet_address.toUpperCase(),
         updated_at: new Date().toISOString(),
       })
       .eq("id", existingReview.id);

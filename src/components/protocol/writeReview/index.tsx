@@ -37,8 +37,6 @@ export default function WriteReviews({
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    console.log("userId:", userId);
-    console.log("user:", user);
 
     if (!userId) {
       setIsSubmitting(false);
@@ -49,6 +47,13 @@ export default function WriteReviews({
     if (!protocol_id) {
       setIsSubmitting(false);
       setError("Invalid protocol id");
+      setErrorShowNotification(true);
+      return;
+    }
+
+    if(rating == 0 || !title || !rating){
+      setIsSubmitting(false);
+      setError("All fields must be compiled to submit the review");
       setErrorShowNotification(true);
       return;
     }
