@@ -79,8 +79,11 @@ function Categories() {
                                             <div>
                                                 <Image src={`/protocols/${protocol.image_url}`} width={25} height={25} alt="protocol logo" />
                                             </div>
-                                            <div>
-                                                {protocol.protocol_name}
+                                            <div className='flex flex-row gap-2 justify-center md:justify-start'>
+                                              <div>
+                                                  {protocol.protocol_name}
+                                              </div>
+                                              {protocol?.verified && <Image src={`/verified/verified.svg`} width={20} height={20} alt="Verified" />}
                                             </div>
                                         </div>
                                     )
@@ -212,8 +215,11 @@ function Categories() {
                                 className="bg-white rounded-lg"
                               />
                               <div className="flex flex-col gap-2">
-                                <div className="text-xl md:text-2xl">
-                                  {protocol.protocol_name}
+                                <div className='flex flex-row gap-2 justify-center md:justify-start'>
+                                  <div className="text-xl md:text-2xl">
+                                    {protocol.protocol_name}
+                                  </div>         
+                                  {protocol?.verified && <Image src={`/verified/verified.svg`} width={20} height={20} alt="Verified" />}
                                 </div>
                                 <div className="flex flex-row gap-1 items-center">
                                   {Array.from(

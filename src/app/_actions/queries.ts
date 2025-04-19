@@ -25,6 +25,7 @@ export const fetchProtocolsAndCategories = async () => {
       discord: protocol.discord,
       x: protocol.x,
       telegram: protocol.telegram,
+      verified: protocol.verified,
       ProtocolCategories: protocol.ProtocolCategories.map((category: any) => ({
         Categories: {
           id: category.Categories.id,

@@ -75,8 +75,11 @@ export default function Hero({ setShowWallet, showWallet }: Props) {
                                             <div>
                                                 <Image src={`/protocols/${protocol.image_url}`} width={25} height={25} alt="protocol logo" />
                                             </div>
-                                            <div>
-                                                {protocol.protocol_name}
+                                            <div className='flex flex-row gap-2 justify-center md:justify-start'>
+                                                <div>
+                                                    {protocol.protocol_name}
+                                                </div>
+                                                {protocol?.verified && <Image src={`/verified/verified.svg`} width={20} height={20} alt="Verified" />}
                                             </div>
                                         </div>
                                     )
@@ -130,7 +133,10 @@ export default function Hero({ setShowWallet, showWallet }: Props) {
                                         <Image className="object-contain" src={`/protocols/${protocol.image_url}`} width={80} height={80} alt={`${protocol.protocol_name} Logo`} />
                                     </div>
                                     <div className="flex flex-col p-4">
-                                        <div className="text-md">{protocol.protocol_name}</div>
+                                        <div className='flex flex-row gap-2 justify-center md:justify-start'>
+                                            <div className="text-md">{protocol.protocol_name}</div>
+                                            {protocol?.verified && <Image src={`/verified/verified.svg`} width={20} height={20} alt="Verified" />}
+                                        </div>
                                         <div className="text-sm">
                                             Algoritmic, autonomous interest rate protocol
                                         </div>

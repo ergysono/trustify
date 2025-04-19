@@ -38,6 +38,7 @@ type Protocol = {
     discord?: string;
     x?: string;
     telegram?: string;
+    verified?: boolean;
 };
 
 type Review = {
